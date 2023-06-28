@@ -47,7 +47,7 @@ export const Incomes = () => {
           </option>
         ))}
       </select>
-      <input placeholder="Введите доход" onChange={handleIncomeValueChange} />
+      <input type="number" placeholder="Введите доход" onChange={handleIncomeValueChange} />
       <button onClick={handleIncomeShow}>Добавить доход</button>
       {isInfoAdded ? (
         <p>{incomeCategory + " " + incomeDetail + " " + showIncome}</p>
