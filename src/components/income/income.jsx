@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { incomeCategories, incomeDetails } from "../shared/database";
 
+const arrOfIncomes = [];
+
 export const Incomes = () => {
   const [isInfoAdded, setIsInfoAdded] = useState(false);
 
@@ -10,7 +12,7 @@ export const Incomes = () => {
   const [incomeCategory, setIncomeCategory] = useState(incomeCategories[0]);
   const [incomeDetail, setIncomeDetail] = useState(incomeDetails[0]);
 
-  const handleIncomeChange = (event) => {
+  const handleIncomeValueChange = (event) => {
     setIncomeValue(event.target.value);
   };
   const [showIncome, setShowIncome] = useState("");
@@ -18,6 +20,7 @@ export const Incomes = () => {
   const handleIncomeShow = () => {
     setIsInfoAdded(true);
     setShowIncome(incomeValue);
+    arrOfIncomes.push(incomeValue);
   };
   const handleIncomeCategoryShow = (event) => {
     setIncomeCategory(event.target.value);
@@ -44,7 +47,7 @@ export const Incomes = () => {
           </option>
         ))}
       </select>
-      <input placeholder="Введите доход" onChange={handleIncomeChange} />
+      <input placeholder="Введите доход" onChange={handleIncomeValueChange} />
       <button onClick={handleIncomeShow}>Добавить доход</button>
       {isInfoAdded ? (
         <p>{incomeCategory + " " + incomeDetail + " " + showIncome}</p>

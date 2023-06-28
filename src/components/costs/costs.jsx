@@ -22,7 +22,7 @@ export const Costs = () => {
     setShowCost(costValue);
     arrOfCosts.push(costValue);
   };
-  const handleCostCategoriesShow = (event) => {
+  const handleCostCategoryShow = (event) => {
     setCostCategory(event.target.value);
   };
   const handleCostDetailsShow = (event) => {
@@ -33,7 +33,7 @@ export const Costs = () => {
     <>
       <h1>Ваши расходы</h1>
       <p>Выберите категорию и детализацию</p>
-      <select onChange={handleCostCategoriesShow}>
+      <select onChange={handleCostCategoryShow}>
         {costCategories.map((cost) => (
           <option value={cost} key={cost}>
             {cost}
